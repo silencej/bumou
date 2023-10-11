@@ -1,0 +1,162 @@
+
+* Company
+
+上海旭修信息技术有限公司
+91310120MA1HLQ2612
+上海市奉贤区海湾镇五四公路4399号37幢1479室
+上海市, 上海市, 221100
+China
+
+主办单位性质
+企业
+负责人，手机
+杨晶
+18201840625
+
+咘呣网
+沪ICP备2023004194号-1	
+bumou.space
+47.92.231.11
+bumou.site
+
+ID
+420621198611231940
+手机号码
+18201840625
+应急手机号码
+18327594378
+电子邮箱
+273219010@qq.com
+
+* AWS
+
+AWS中国帐号：
+账户 ID (12 位数)或账户别名：
+412922728822
+邮箱
+273219010@qq.com
+用户名
+Bumou
+密码
+186123yJ
+
+** beian
+
+*** general
+
+https://icp.nwcdcloud.cn/
+yang_jing_1186@hotmail.com
+186123yJ
+
+上海旭修信息技术有限公司
+主体备案号：
+沪ICP备2023004194号
+2023-09-21 15:05:15
+
+邮寄信息
+收件人
+杨小姐
+18201840625
+上海市闵行区莘庄镇水清二村
+
+*** web
+
+bumou.space
+沪ICP备2023004194号-1
+
+*** app
+
+* aliyun
+
+账号ID：
+1987472580044944
+域名称
+1987472580044944.onaliyun.com
+
+
+18201840625
+aliyun1129805504
+186123yJ
+Old: p8UabFxBBHI=
+
+owen@1987472580044944.onaliyun.com
+UID:
+235064093970355880
+
+* ios
+
+** develper
+
+https://developer.apple.com/account
+
+273219010@qq.com
+186123yJ
+
+Renewal date
+March 14, 2024
+Annual fee
+RMB688
+
+** bumou en
+
+Bundle ID
+com.BUMOU
+
+SKU
+BUMOU123
+
+Apple ID
+6452385207
+
+Content Rights
+Set Up Content Rights Information
+Age Rating
+Set Age Rating Across All Platforms
+License Agreement
+Apple’s Standard License Agreement
+
+Primary Language
+English (U.S.)
+
+China Mainland ICP Filing Number
+An Internet Content Provider (ICP) Filing Number is an app registration number from China's Ministry of Industry and Information Technology (MIIT). If you have an ICP Filing Number, provide it here.
+
+
+** bumou cn
+
+Bundle ID
+com.ricardo777.bum
+
+SKU
+4556trfgyui
+
+Apple ID
+6446330462
+
+* Android
+
+** Platform
+
+华为：https://developer.huawei.com/consumer/cn/doc/80301
+邮箱：273219010@qq.com;密码：186123yj
+
+os link : https://developer.apple.com/
+电话：18201840625
+密码：
+186123yJ
+邮箱：
+273219010@qq.com
+
+Xiaomi:https://dev.mi.com/console/app/phone.html
+电话：18201840625；密码：；邮箱：271196857@qq.com；企业开发者
+vivo:https://dev.vivo.com.cn/documentCenter/doc/12
+电话：18201840625；密码：186123y+J ；邮箱：273219010@qq.com 用户名：JY1186
+oppo https://developers.oppomobile.com/
+电话：18201840625；密码：186123yj ；邮箱：273219010@qq.com；用户名：JY1186
+baidu: https://shouji.baidu.com/
+电话：18201840625；密码：186123yj ；邮箱：273219010@qq.com；用户名：jingfuwawawa
+360:https://dev.360.cn/mod3/mobilenavs/index?_t=1675136577914
+电话：18201840625；密码：186123yj ；邮箱：273219010@qq.com；
+腾讯应用宝：https://app.open.qq.com/p/app/detail?appId=1112197057用的企业资质
+电话：18201840625；邮箱：273219010@qq.com；
+
