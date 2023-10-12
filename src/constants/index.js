@@ -35,7 +35,7 @@ if (config.ENV === 'stg') {
 if (config.ENV === 'prd') {
   BEURL = `https://bumou.space`
 }
-// BEURL = `https://bumou.space`
+BEURL = `https://bumou.space`
 
 // const BEURL = config.BEURL
 // BEURL = BEURL.endsWith("/") ? `${BEURL}` : `${BEURL}/`

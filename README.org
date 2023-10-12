@@ -140,7 +140,7 @@ Apple ID
 华为：https://developer.huawei.com/consumer/cn/doc/80301
 邮箱：273219010@qq.com;密码：186123yj
 
-os link : https://developer.apple.com/
+ios link : https://developer.apple.com/
 电话：18201840625
 密码：
 186123yJ

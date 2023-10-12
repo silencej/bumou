@@ -442,12 +442,12 @@ PODS:
     - React-perflogger (= 0.72.4)
   - RNCAsyncStorage (1.19.3):
     - React-Core
-  - RNGestureHandler (2.13.1):
+  - RNGestureHandler (2.12.1):
     - React-Core
   - RNScreens (3.25.0):
     - React-Core
     - React-RCTImage
-  - RNSVG (13.14.0):
+  - RNSVG (13.13.0):
     - React-Core
   - SocketRocket (0.6.1)
   - SwiftAudioEx (0.15.3)
@@ -633,7 +633,7 @@ SPEC CHECKSUMS:
   React-Core: 34da8c952844e21f5a69bf46438fb6bf063900d0
   React-CoreModules: 621243df8863055ff30f3bb2ff71573ffa7b16c8
   React-cxxreact: 4ad1cc861e32fb533dad6ff7a4ea25680fa1c994
-  React-debug: c5c73132cf71aa9c826aa6a1cc5283993daf5f89
+  React-debug: 836cb4997c7ae8c30344c713d648f2eddfa3dee8
   React-hermes: 37377d0a56aa0cf55c65248271866ce3268cde3f
   React-jsi: 6de8b0ccc6b765b58e4eee9ee38049dbeaf5c221
   React-jsiexecutor: c7f826e40fa9cab5d37cab6130b1af237332b594
@@ -644,7 +644,7 @@ SPEC CHECKSUMS:
   react-native-geolocation-service: 608e1da71a1ac31b4de64d9ef2815f697978c55b
   react-native-safe-area-context: 7aa8e6d9d0f3100a820efb1a98af68aa747f9284
   react-native-track-player: 0c26d981b5097910486cbbeb6d8f5352d41be069
-  React-NativeModulesApple: 819f442b2bc3600d85c33202d32c7fb0854126f2
+  React-NativeModulesApple: cb2a327c7b15470a27d3ec81b2179ccc8ad2ad96
   React-perflogger: 496a1a3dc6737f964107cb3ddae7f9e265ddda58
   React-RCTActionSheet: 02904b932b50e680f4e26e7a686b33ebf7ef3c00
   React-RCTAnimation: e44fe5053708c5be762943087c78dc5a6a3c645c
@@ -658,17 +658,17 @@ SPEC CHECKSUMS:
   React-RCTVibration: 35eec7201c8ffdaccdd908a5ec874b7055f975f3
   React-rncore: 46133d523155fc84572338bd6a7c461c1d873efc
   React-runtimeexecutor: d465ba0c47ef3ed8281143f59605cacc2244d5c7
-  React-runtimescheduler: 6e06f31650c0674d8ec9dea6736f07d1d6139ba6
-  React-utils: 0ee21cd5f0efd6a9e39ba1b8d6e8eff7a1439a7d
-  ReactCommon: 96705786d2d5234692a3940367982a59f346d2ed
+  React-runtimescheduler: 85b246ee982e77f9d70d45cd5215ee34cc1731ef
+  React-utils: 066f6dfee06428635c30ae1d912665d3878db75c
+  ReactCommon: 52af303b51f65aaa068b89eebd1683fc44f4e5af
   RNCAsyncStorage: c913ede1fa163a71cea118ed4670bbaaa4b511bb
-  RNGestureHandler: 38aa38413896620338948fbb5c90579a7b1c3fde
+  RNGestureHandler: c0d04458598fcb26052494ae23dda8f8f5162b13
   RNScreens: 85d3880b52d34db7b8eeebe2f1a0e807c05e69fa
-  RNSVG: d00c8f91c3cbf6d476451313a18f04d220d4f396
+  RNSVG: ed492aaf3af9ca01bc945f7a149d76d62e73ec82
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
   SwiftAudioEx: 83eabba2940924fc1c0d5cb0896049921365229c
   Yoga: 3efc43e0d48686ce2e8c60f99d4e6bd349aff981
 
-PODFILE CHECKSUM: d9df48c4115e4df5cdd2cbe452460ad3e252d671
+PODFILE CHECKSUM: 5b81ca5f18f6262f57d5ea92959c7533997dd38b
 
 COCOAPODS: 1.12.1

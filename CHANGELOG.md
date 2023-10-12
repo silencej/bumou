@@ -10,15 +10,19 @@
 TODO
 
 - Feat: user can change profile picture
+- android signing
+- iOS上线
+
+- 安卓上线商店
+- Dev: Android/Ios release debug/log
+
 - Feat: chinese language.
 - Feat: Send image and emoji in chat
 - Feat: 视频call，语音。因为如果是小朋友，他们肯定不会打字，语音和视频是必须的
 
 - FixUI: Chat msg is blocked by input box
-- Dev: Android/Ios release debug/log
 
-- 安卓上线商店
-- iOS上线
+
 
 
 # [v0.0.1]
