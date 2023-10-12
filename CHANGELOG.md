@@ -13,6 +13,8 @@ TODO
 - android signing
 - iOS上线
 
+- be as a systemd service
+
 - 安卓上线商店
 - Dev: Android/Ios release debug/log
 
