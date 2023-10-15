@@ -40,17 +40,30 @@ const baseQueryWithDispatch = async (args, api, extraOptions) => {
 
     console.log(`response: `, response)
 
+    /*
+    const response = {
+      error: {
+        error: "TypeError: Network request failed",
+        status: "FETCH_ERROR"
+      },
+      mete,
+    }
+    */
+    if (response?.error?.error === 'TypeError: Network request failed') {
+      throw `Network error, check ${BEURL}`
+    }
+
     // console.log("response status: ", response.meta.response.status)
-    if (response.meta.response.status === 403) {
+    if (response?.meta?.response?.status === 403) {
       api.dispatch(setToken(''))
       throw "You are unauthorized, please login again"
     }
 
     // Other than 403, we always return a json in the response body.
-    if (!response.meta.response.ok) {
+    if (!response?.meta?.response?.ok) {
       console.error(response.error)
-      if ("DB error: record not found" === response.error.data) {
-        throw "Login failed"
+      if ("DB error: record not found" === response?.error?.data) {
+        throw "Login failed: User not exists"
       }
       throw "Request failed!"
     }

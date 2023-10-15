@@ -1,66 +1,104 @@
 #!/bin/bash
 
+shopt -s nullglob
+
+function echoVar() {
+  echo "$1: ${!1}"
+}
+function checkVar() {
+  if [[ -z "${!1}" ]]; then
+    echoRed "$1" is empty!
+    return 1
+  fi
+}
+
+# shellcheck disable=SC2034 # DIR may be used.
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+echoVar DIR
 
+# shellcheck disable=SC2034 # sourced may be used.
 (return 0 2>/dev/null) && sourced="y" || sourced="n"
+echoVar sourced
 
-# Note: for scripts to run in e.g. nodejs.exec(), better to remove these err checking
-set -o pipefail
-set -eE  # same as: `set -o errexit -o errtrace`
-trap 'echoRed Error: ' ERR
+# Turn them off by:
+# setErr off
+function setErr() {
+    if [[ "$1" != "off" ]]; then
+	echo "setErr on"
+        _ERRON=yes
+	set -e -E -o pipefail
+    else
+        echo "setErr off"
+	_ERRON=no
+        set +e +E +o pipefail
+    fi
+}
+setErr
 
-#----------
+function echoErr() {
+  rv=$?
+  if [[ "${_ERRON}" == "no" ]]; then
+    echoBlue "Error $rv in $0#$LINENO: $BASH_COMMAND"
+    return 0
+  fi
+  echoRed "Error $rv in $0#$LINENO: $BASH_COMMAND"
+  exit $rv
+}
+trap 'echoErr' ERR
 
 function tput2() {
   if [[ -z "$TERM" ]]; then
     export MYTERM="dumb"
   else
-    export MYTERM=$TERM
+    export MYTERM="$TERM"
   fi
-  TERM=$MYTERM tput $@ || :
+  TERM="$MYTERM" tput "$@" || :
 }
 export -f tput2
 
 function echoRed() {
+  if [[ "$NOCOLOR" == "yes" ]]; then
+    echo "$*"
+    return
+  fi
   fg=$(tput2 setaf 1)
   # bg=$(tput2 setab 9)
   clear=$(tput2 sgr0)
-  echo "$fg$@$clear"
+  echo "$fg$*$clear"
 }
 function echoGreen() {
+  if [[ "$NOCOLOR" == "yes" ]]; then
+    echo "$*"
+    return
+  fi
   fg=$(tput2 setaf 2)
   # bg=$(tput2 setab 9)
   clear=$(tput2 sgr0)
-  echo "$fg$@$clear"
+  echo "$fg$*$clear"
 }
 function echoBlue() {
+  if [[ "$NOCOLOR" == "yes" ]]; then
+    echo "$*"
+    return
+  fi
   fg=$(tput2 setaf 4)
   # bg=$(tput2 setab 9)
   clear=$(tput2 sgr0)
-  echo "$fg$@$clear"
+  echo "$fg$*$clear"
 }
 
-function echoVar() {
-  echo $1: ${!1}
-}
-function checkVar() {
-  if [[ -z "${!1}" ]]; then
-    echoRed $1 is empty!
-    return 1
-  fi
-}
-
-if [[ "$debug" == "yes" ]]; then
+if [[ "$DEBUG" == "yes" ]]; then
   # shift
   set -x
 fi
 
 if [[ "$(uname)" == "Darwin" ]]; then
-  this=$(realpath -q $DIR)
+  this=$(realpath -q "$DIR")
 else
-  this=$(realpath -e $DIR)
+  # shellcheck disable=SC2034
+  this=$(realpath -e "$DIR")
 fi
-echo $this >/dev/null
+echoVar this
 
 #----------
 
@@ -120,6 +158,7 @@ function proda() {
 function post() {
   cp "$DIR"/android/app/build/outputs/apk/release/app-release.apk "$DIR/bumou-v0.0.1-$(date '+%Y%m%d-%H%M%S').apk"
 }
+
 
 #----------
 

@@ -100,6 +100,8 @@ echoVar this
 
 #---------- Deploy
 
+export PROJ=bumou
+
 function push() {
   rsync --exclude="main.db" --exclude="*.bak" -avzP "$DIR"/* bumou:~/website/bumou/be/
 }
@@ -123,7 +125,17 @@ function bkdb() {
 
 #---------- Start
 
-function start() {
+install() {
+  # chmod 755 /home/ubuntu
+  sudo apt install -y gettext-base jq
+  export PROJ_DIR="$DIR"
+  envsubst <"$DIR"/templates/"${PROJ}".service | sudo tee /etc/systemd/system/"${PROJ}".service > /dev/null
+  sudo systemctl enable "${PROJ}"
+  sudo systemctl start "${PROJ}"
+  systemctl status "${PROJ}"
+}
+
+function startInBg() {
   pushd "$DIR"
   killall go ||:
   ps aux | grep -F go||:
@@ -133,7 +145,7 @@ function start() {
   popd
 }
 
-function run() {
+function start() {
   . ~/.bashrc
   go run .
 }
@@ -201,6 +213,7 @@ function addStu() {
   delStu
   addStuOne 01
   addStuOne 02
+  echo "---------- Res:"
   sqlite3 "$DIR"/main.db "select id from users where name='student01';"
 }
 function updateStuAvatar() {

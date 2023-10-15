@@ -150,7 +150,7 @@ func mainWeb() {
 		var user User
 		ensureDB(db.First(&user, c.Keys["userId"]))
 		var posts []Post
-		ensureDB(db.Preload("Likes").Preload("Comments").Preload("Comments.From").Preload("User").Find(&posts))
+		ensureDB(db.Preload("Likes").Preload("Comments").Preload("Comments.From").Preload("User").Order("updated_at desc").Find(&posts))
 		var output []Post
 		for _, p := range posts {
 			if p.User.UserType == user.UserType {

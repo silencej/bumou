@@ -1,0 +1,17 @@
+[Unit]
+Description=Service for ${PROJ}
+Wants=network.target
+After=network.target
+
+[Service]
+ExecStart=bash ${PROJ_DIR}/run.sh start
+SyslogIdentifier=${PROJ}.service
+Restart=always
+WorkingDirectory=${PROJ_DIR}
+TimeoutStopSec=30
+Type=simple
+User=ubuntu
+Group=ubuntu
+
+[Install]
+WantedBy=multi-user.target

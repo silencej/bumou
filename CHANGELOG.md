@@ -1,19 +1,25 @@
 
 # TODO
 
-- Feat: new friend request, confirm new friend, delete friend
+- Feat: new friend request, confirm new friend, delete friend, like facebook follow/unfollow
 
 - Feat: 手机屏保，一打开手机，就出现那5个emjio选项，可以选择其中一个
 
 # [v0.0.2]
 
+- ops: be as a systemd service
+- FixBug: 朋友圈需要按最新时间排序。
+- FixBug: more detailed error info for UI data service
+
 TODO
+
+- FixBug: 学生的，ios无法注册及登录
+
+- Feat: 检测是否有vpn，提示关闭vpn
 
 - Feat: user can change profile picture
 - android signing
 - iOS上线
-
-- be as a systemd service
 
 - 安卓上线商店
 - Dev: Android/Ios release debug/log
