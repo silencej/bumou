@@ -10,6 +10,8 @@ import {PersistGate} from 'redux-persist/integration/react';
 import store, {persistor} from './src/redux/store';
 import TrackPlayer from 'react-native-track-player';
 
+import { Bugfender } from '@bugfender/rn-bugfender';
+
 const AppGate = () => {
   return (
     <Provider store={store}>
@@ -21,5 +23,9 @@ const AppGate = () => {
     </Provider>
   );
 };
+
+Bugfender.init({
+  appKey: `cqR3O71Ss5FSY6Uzk2Ysg67hctHaIkfz`,
+})
 TrackPlayer.registerPlaybackService(() => require('./service'));
 AppRegistry.registerComponent(appName, () => AppGate);

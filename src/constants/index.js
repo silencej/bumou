@@ -18,13 +18,13 @@ import {
 import config from 'react-native-config'
 
 console.log('config: ', config)
+console.log(`Platform.OS: `, Platform.OS)
 
 // Android
 let BEURL = `http://10.0.2.2:58800`
 
 // iOS
 if (Platform.OS === 'ios') {
-  console.log(`Platform.OS: `, Platform.OS)
   BEURL = `http://localhost:58800`
 }
 
