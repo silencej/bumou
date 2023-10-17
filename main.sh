@@ -102,6 +102,10 @@ echoVar this
 
 #----------
 
+buildi() {
+  xcodebuild -workspace "$DIR"/ios/BUMOU.xcworkspace -configuration Debug -scheme BUMOU -destination id=CB20AA32-ABC0-47FA-80E3-38312B5946F5
+}
+
 function installApk() {
   find ./android -name "*.apk" -exec ls -lrt {} \;
   adb -s emulator-5554 install $DIR/android/app/build/outputs/apk/debug/app-debug.apk
