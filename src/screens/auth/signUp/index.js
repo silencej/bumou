@@ -53,9 +53,13 @@ export default function SignUp (props) {
   const position = useRef(new Animated.ValueXY(0, 0)).current;
 
   const [signupMutation, signupMutationRes] = api.useSignupMutation()
-  const [setProfileMutation, setProfileMutationRes] = api.useSetProfileMutation()
+  useEffect(()=>{
+    // TODO
+  }, [signupMutationRes.data])
 
-  useEffect(() => {
+    const [setProfileMutation, setProfileMutationRes] = api.useSetProfileMutation()
+
+    useEffect(() => {
     const animation = Animated.loop(
       Animated.sequence([
         Animated.timing(position, {

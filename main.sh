@@ -100,27 +100,35 @@ else
 fi
 echoVar this
 
-#----------
+#---------- iOS
+
+prepi() {
+  sudo gem install cocoapods ; cd ios ; bundle install ; bundle exec pod install
+  # brew upgrade cocoapods
+}
 
 buildi() {
-  xcodebuild -workspace "$DIR"/ios/BUMOU.xcworkspace -configuration Debug -scheme BUMOU -destination id=CB20AA32-ABC0-47FA-80E3-38312B5946F5
+  xcodebuild -workspace "$DIR"/ios/BUMOU.xcworkspace -configuration Debug -scheme BUMOU
+# -destination id=CB20AA32-ABC0-47FA-80E3-38312B5946F5
 }
+
+#---------- Android
 
 function installApk() {
   find ./android -name "*.apk" -exec ls -lrt {} \;
-  adb -s emulator-5554 install $DIR/android/app/build/outputs/apk/debug/app-debug.apk
+  adb -s emulator-5554 install "$DIR"/android/app/build/outputs/apk/debug/app-debug.apk
 }
 
 function emu() {
   avd=$1
   if [[ -z "$avd" ]]; then
-    $ANDROID_HOME/emulator/emulator -list-avds
+    "$ANDROID_HOME"/emulator/emulator -list-avds
   else
-    echo $ANDROID_HOME/emulator/emulator -avd $avd
+    echo "$ANDROID_HOME"/emulator/emulator -avd "$avd"
   fi
 }
 
-function start() {
+function starta() {
   app=com.bumou
   adb -s emulator-5554 shell am force-stop $app
   adb -s emulator-5554 shell am start -n $app/$app.MainActivity
@@ -156,10 +164,10 @@ function proda() {
   keytool -printcert -jarfile app/build/outputs/bundle/release/app-release.aab
   # keytool -list -v -keystore app/$jks
   popd
-  post
+  posta
 }
 
-function post() {
+function posta() {
   cp "$DIR"/android/app/build/outputs/apk/release/app-release.apk "$DIR/bumou-v0.0.1-$(date '+%Y%m%d-%H%M%S').apk"
 }
 

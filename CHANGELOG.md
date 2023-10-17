@@ -13,6 +13,8 @@
 
 TODO
 
+- FixBug: 当注册失败第一次，后面signup按钮无法再点击
+
 - FixBug: 学生的，ios无法注册及登录
 
 - Feat: 检测是否有vpn，提示关闭vpn

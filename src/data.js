@@ -41,14 +41,14 @@ const baseQueryWithDispatch = async (args, api, extraOptions) => {
     console.log(`response: `, response)
 
     /*
-    const response = {
-      error: {
-        error: "TypeError: Network request failed",
-        status: "FETCH_ERROR"
-      },
-      mete,
-    }
-    */
+       const response = {
+       error: {
+       error: "TypeError: Network request failed",
+       status: "FETCH_ERROR"
+       },
+       mete,
+       }
+     */
     if (response?.error?.error === 'TypeError: Network request failed') {
       throw `Network error, check ${BEURL}`
     }
@@ -64,6 +64,9 @@ const baseQueryWithDispatch = async (args, api, extraOptions) => {
       console.error(response.error)
       if ("DB error: record not found" === response?.error?.data) {
         throw "Login failed: User not exists"
+      }
+      if ("DB error: UNIQUE constraint failed: users.phone" === response?.error?.data) {
+        throw "Phone already registered!"
       }
       throw "Request failed!"
     }

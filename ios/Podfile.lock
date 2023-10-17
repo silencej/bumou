@@ -1,5 +1,6 @@
 PODS:
   - boost (1.76.0)
+  - BugfenderSDK (1.13.1)
   - BVLinearGradient (2.8.3):
     - React-Core
   - DoubleConversion (1.1.6)
@@ -440,14 +441,17 @@ PODS:
     - React-jsi (= 0.72.4)
     - React-logger (= 0.72.4)
     - React-perflogger (= 0.72.4)
+  - RnBugfender (2.2.1):
+    - BugfenderSDK (~> 1.10)
+    - React-Core
   - RNCAsyncStorage (1.19.3):
     - React-Core
-  - RNGestureHandler (2.12.1):
+  - RNGestureHandler (2.13.2):
     - React-Core
   - RNScreens (3.25.0):
     - React-Core
     - React-RCTImage
-  - RNSVG (13.13.0):
+  - RNSVG (13.14.0):
     - React-Core
   - SocketRocket (0.6.1)
   - SwiftAudioEx (0.15.3)
@@ -500,6 +504,7 @@ DEPENDENCIES:
   - React-runtimescheduler (from `../node_modules/react-native/ReactCommon/react/renderer/runtimescheduler`)
   - React-utils (from `../node_modules/react-native/ReactCommon/react/utils`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - "RnBugfender (from `../node_modules/@bugfender/rn-bugfender`)"
   - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNScreens (from `../node_modules/react-native-screens`)
@@ -508,6 +513,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - BugfenderSDK
     - fmt
     - libevent
     - SocketRocket
@@ -603,6 +609,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/react/utils"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  RnBugfender:
+    :path: "../node_modules/@bugfender/rn-bugfender"
   RNCAsyncStorage:
     :path: "../node_modules/@react-native-async-storage/async-storage"
   RNGestureHandler:
@@ -616,6 +624,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   boost: 57d2868c099736d80fcd648bf211b4431e51a558
+  BugfenderSDK: 21c9e2e8f413b752e80a5d3086f8815f9e51fb73
   BVLinearGradient: 880f91a7854faff2df62518f0281afb1c60d49a3
   DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
   FBLazyVector: 5d4a3b7f411219a45a6d952f77d2c0a6c9989da5
@@ -661,10 +670,11 @@ SPEC CHECKSUMS:
   React-runtimescheduler: 85b246ee982e77f9d70d45cd5215ee34cc1731ef
   React-utils: 066f6dfee06428635c30ae1d912665d3878db75c
   ReactCommon: 52af303b51f65aaa068b89eebd1683fc44f4e5af
+  RnBugfender: 14291bb209de4025e16e6cd0c153ebe163cd07d7
   RNCAsyncStorage: c913ede1fa163a71cea118ed4670bbaaa4b511bb
-  RNGestureHandler: c0d04458598fcb26052494ae23dda8f8f5162b13
+  RNGestureHandler: bb86e378287f7713baf3ca205423eb8109790022
   RNScreens: 85d3880b52d34db7b8eeebe2f1a0e807c05e69fa
-  RNSVG: ed492aaf3af9ca01bc945f7a149d76d62e73ec82
+  RNSVG: d00c8f91c3cbf6d476451313a18f04d220d4f396
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
   SwiftAudioEx: 83eabba2940924fc1c0d5cb0896049921365229c
   Yoga: 3efc43e0d48686ce2e8c60f99d4e6bd349aff981
