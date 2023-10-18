@@ -54,10 +54,12 @@ export default function SignUp (props) {
 
   const [signupMutation, signupMutationRes] = api.useSignupMutation()
   useEffect(()=>{
-    // TODO
-  }, [signupMutationRes.data])
+    if (signupMutationRes.isError) {
+      setSignupEnabled(true)
+    }
+  }, [signupMutationRes.isError])
 
-    const [setProfileMutation, setProfileMutationRes] = api.useSetProfileMutation()
+  const [setProfileMutation, setProfileMutationRes] = api.useSetProfileMutation()
 
     useEffect(() => {
     const animation = Animated.loop(
