@@ -10,18 +10,22 @@
 - ops: be as a systemd service
 - FixBug: 朋友圈需要按最新时间排序。
 - FixBug: more detailed error info for UI data service
+- FixBug: 当注册失败第一次，后面signup按钮无法再点击
+- FixBug: 学生的，ios无法注册及登录
+
+- iOS上线
 
 TODO
 
-- FixBug: 当注册失败第一次，后面signup按钮无法再点击
-
-- FixBug: 学生的，ios无法注册及登录
-
-- Feat: 检测是否有vpn，提示关闭vpn
+- FixBug：注册邮箱重复，改报用户名重复。
+- FixBug: iPhone 14 评论无法关闭。
+- UI: 评论参考微信设计。
+- UI: logo加红点。
 
 - Feat: user can change profile picture
 - android signing
-- iOS上线
+
+- Feat: 检测是否有vpn，提示关闭vpn
 
 - 安卓上线商店
 - Dev: Android/Ios release debug/log
