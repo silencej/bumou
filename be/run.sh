@@ -102,6 +102,11 @@ echoVar this
 
 export PROJ=bumou
 
+HOST=http://localhost:58800/api
+if [[ "$ENV" == "prd" ]]; then
+  HOST=https://bumou.space/api
+fi
+
 function push() {
   rsync --exclude="main.db" --exclude="*.bak" -avzP "$DIR"/* bumou:~/website/bumou/be/
 }
@@ -202,12 +207,12 @@ function delStu() {
 function addStuOne() {
   no=$1
   checkVar no
-  res=$(curl -sf -d "$(generate_user student "$no")" -H "Content-Type: application/json" -X POST http://localhost:58800/api/signup)
+  res=$(curl -sf -d "$(generate_user student "$no")" -H "Content-Type: application/json" -X POST "$HOST"/signup)
   token=$(echo "$res" | jq -r ".Token")
   echoVar token
 
-  res=$(curl -sf -d '{"Date":"2023-10-10T18:00:00Z", "Mood":"Very Good", "Desc":"I am a student, very good"}' -H "Authorization: Bearar ${token}"  -H "Content-Type: application/json" -X POST http://localhost:58800/api/posts)
-  res=$(curl -sf -d '{"Date":"2023-10-10T18:05:00Z", "Mood":"Very Bad", "Desc":"I am a student, very bad"}' -H "Authorization: Bearar ${token}"  -H "Content-Type: application/json" -X POST http://localhost:58800/api/posts)
+  res=$(curl -sf -d '{"Date":"2023-10-10T18:00:00Z", "Mood":"Very Good", "Desc":"I am a student, very good"}' -H "Authorization: Bearar ${token}"  -H "Content-Type: application/json" -X POST "$HOST"/posts)
+  res=$(curl -sf -d '{"Date":"2023-10-10T18:05:00Z", "Mood":"Very Bad", "Desc":"I am a student, very bad"}' -H "Authorization: Bearar ${token}"  -H "Content-Type: application/json" -X POST "$HOST"/posts)
 }
 function addStu() {
   delStu
@@ -219,12 +224,12 @@ function addStu() {
 function updateStuAvatar() {
   no=$1
   checkVar no
-  res=$(curl -sf -d "$(generate_user student "$no")" -H "Content-Type: application/json" -X POST http://localhost:58800/api/login)
+  res=$(curl -sf -d "$(generate_user student "$no")" -H "Content-Type: application/json" -X POST "$HOST"/login)
   token=$(echo "$res" | jq -r ".Token")
   echoVar token
 
   img="$DIR/../imgs/avatar.jpg"
-  res=$(curl -sf -d '{"Avatar":""}' -H "Authorization: Bearar ${token}"  -H "Content-Type: application/json" -X POST http://localhost:58800/api/posts)
+  res=$(curl -sf -d '{"Avatar":""}' -H "Authorization: Bearar ${token}"  -H "Content-Type: application/json" -X POST "$HOST"/posts)
 }
 
 function delAdu() {
@@ -235,12 +240,12 @@ function delAdu() {
 function addAduOne() {
   no=$1
   checkVar no
-  res=$(curl -sf -d "$(generate_user adult "$no")" -H "Content-Type: application/json" -X POST http://localhost:58800/api/signup)
+  res=$(curl -sf -d "$(generate_user adult "$no")" -H "Content-Type: application/json" -X POST "$HOST"/signup)
   token=$(echo "$res" | jq -r ".Token")
   echoVar token
 
-  res=$(curl -sf -d '{"Date":"2023-10-10T18:00:00Z", "Mood":"Very Good", "Desc":"I am an adult, very good"}' -H "Authorization: Bearar ${token}"  -H "Content-Type: application/json" -X POST http://localhost:58800/api/posts)
-  res=$(curl -sf -d '{"Date":"2023-10-10T18:05:00Z", "Mood":"Very Bad", "Desc":"I am an adult, very bad"}' -H "Authorization: Bearar ${token}"  -H "Content-Type: application/json" -X POST http://localhost:58800/api/posts)
+  res=$(curl -sf -d '{"Date":"2023-10-10T18:00:00Z", "Mood":"Very Good", "Desc":"I am an adult, very good"}' -H "Authorization: Bearar ${token}"  -H "Content-Type: application/json" -X POST "$HOST"/posts)
+  res=$(curl -sf -d '{"Date":"2023-10-10T18:05:00Z", "Mood":"Very Bad", "Desc":"I am an adult, very bad"}' -H "Authorization: Bearar ${token}"  -H "Content-Type: application/json" -X POST "$HOST"/posts)
 }
 function addAdu() {
   delAdu

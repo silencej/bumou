@@ -14,15 +14,18 @@
 - FixBug: 学生的，ios无法注册及登录
 
 - iOS上线
+- UI: logo加红点。
 
 TODO
 
-- FixBug：注册邮箱重复，改报用户名重复。
 - FixBug: iPhone 14 评论无法关闭。
-- UI: 评论参考微信设计。
-- UI: logo加红点。
+- UI: Can cancel in signup page.
+- Remove bugfender?
 
 - Feat: user can change profile picture
+- FixBug：注册邮箱重复，改报用户名重复。
+- UI: 评论参考微信设计。
+
 - android signing
 
 - Feat: 检测是否有vpn，提示关闭vpn
