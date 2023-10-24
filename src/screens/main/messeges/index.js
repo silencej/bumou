@@ -30,13 +30,13 @@ const Messeges = props => {
   const [messages, setMessages] = useState([]);
 
   const {navigation} = props
-    React.useLayoutEffect(() => {
-      navigation.setOptions({
-        tabBarStyle: {
-          display: "none",
-        },
-      });
-    }, [navigation]);
+  React.useLayoutEffect(() => {
+    navigation.setOptions({
+      tabBarStyle: {
+        display: "none",
+      },
+    });
+  }, [navigation]);
 
   const getChatRes = api.useGetChatQuery({
     Tag: tag,

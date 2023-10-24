@@ -8,6 +8,7 @@ import {
   ImageBackground,
   TextInput,
   Modal,
+  SafeAreaView,
 } from 'react-native';
 import styles from './styles';
 import { images } from '../../../assets/images';
@@ -218,7 +219,7 @@ export default function EmojiDetail (props) {
         />
       </View>
       <Modal animationType="slide" transparent={ true } visible={ commentModal }>
-        <View style={ styles.centeredView }>
+        <SafeAreaView style={ styles.centeredView }>
           <View style={ styles.modalView }>
             <TouchableOpacity
               onPress={ () => setCommentModal(false) }
@@ -245,7 +246,7 @@ export default function EmojiDetail (props) {
               </TouchableOpacity>
             </View>
           </View>
-        </View>
+        </SafeAreaView>
       </Modal>
     </View>
   );

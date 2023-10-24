@@ -69,7 +69,7 @@ const baseQueryWithDispatch = async (args, api, extraOptions) => {
         throw "Phone already registered!"
       }
       if ("DB error: UNIQUE constraint failed: users.email" === response?.error?.data) {
-        throw "Email already registered!"
+        throw "Username or Email already registered!"
       }
       throw `Request failed: ${response?.error?.data}`
     }

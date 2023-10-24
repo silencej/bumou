@@ -395,12 +395,12 @@ export default function SignUp (props) {
                   value={ email }
                   placeholder="Email (Optional)"
                   onChangeText={ val => setEmail(val) }
-                  // onFocus={() => {
-                    //   setIsFocus(true);
-                    // }}
-                  // onBlur={() => {
-                    //   setIsFocus(false);
-                    // }}
+                // onFocus={() => {
+                  //   setIsFocus(true);
+                  // }}
+                // onBlur={() => {
+                  //   setIsFocus(false);
+                  // }}
                 />
                 {/* {isFocus === true && email !== '' ? (
                     <View>
@@ -483,12 +483,12 @@ export default function SignUp (props) {
                   value={ email }
                   placeholder="Email (Optional)"
                   onChangeText={ val => setEmail(val) }
-                  // onFocus={() => {
-                    //   setIsFocus(true);
-                    // }}
-                  // onBlur={() => {
-                    //   setIsFocus(false);
-                    // }}
+                // onFocus={() => {
+                  //   setIsFocus(true);
+                  // }}
+                // onBlur={() => {
+                  //   setIsFocus(false);
+                  // }}
                 />
                 {/* {isFocus === true && email !== '' ? (
                     <View>
@@ -547,6 +547,15 @@ export default function SignUp (props) {
               </>
           ) : null }
         </KeyboardAwareScrollView>
+
+        <Button
+          title="Cancel"
+          secondary={true}
+          onPress={ () => {
+            props.navigation.navigate('Login')
+          } }
+        />
+
         <Button
           title="Sign Up"
           enabled={signupEnabled}
@@ -569,5 +578,5 @@ export default function SignUp (props) {
       </View>
     </View>
   );
-}
+                }
 

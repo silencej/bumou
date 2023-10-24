@@ -107,10 +107,13 @@ prepi() {
   # brew upgrade cocoapods
 }
 
-buildi() {
-  xcodebuild -workspace "$DIR"/ios/BUMOU.xcworkspace -configuration Debug -scheme BUMOU
-# -destination id=CB20AA32-ABC0-47FA-80E3-38312B5946F5
+starti() {
+  iphone14=79D3B55C-32BC-4DAD-8349-BCE531BE1A82
+  latest=C5097755-5847-4379-A88B-05C9E36E5FC5
+  mode=Release
+  xcodebuild -workspace "$DIR"/ios/BUMOU.xcworkspace -configuration "$mode" -scheme BUMOU -destination id="$iphone14"
 }
+
 
 #---------- Android
 

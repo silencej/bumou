@@ -8,6 +8,7 @@ import {
   ImageBackground,
   TextInput,
   Modal,
+  SafeAreaView,
 } from 'react-native';
 import styles from './styles';
 import {images} from '../../../assets/images';
@@ -68,11 +69,11 @@ const EmojiDetailCom = props => {
     //   .then(docSnapshot => {
     //     if (docSnapshot.exists) {
     //       const postArray = docSnapshot.get('post') || [];
-    // 
+    //
     //       const postIndex = postArray.findIndex(
     //         post => post.postId === item.postId,
     //       );
-    // 
+    //
     //       if (postIndex !== -1) {
     //         const currentLikes = postArray[postIndex].likes || [];
     //         console.log(like);
@@ -88,12 +89,12 @@ const EmojiDetailCom = props => {
     //               like.userName === obj.userName &&
     //               like.date === obj.date,
     //           );
-    // 
+    //
     //           if (likeIndex !== -1) {
     //             currentLikes.splice(likeIndex, 1);
-    // 
+    //
     //             postArray[postIndex].likes = currentLikes;
-    // 
+    //
     //             return docRef.update({post: postArray});
     //           } else {
     //             throw new Error('Like object not found in the array.');
@@ -115,7 +116,7 @@ const EmojiDetailCom = props => {
   };
 
   return (
-    <View style={styles.card}>
+    <SafeAreaView style={styles.card}>
       <View style={styles.nameAndDateContainer}>
         <View style={{flexDirection: 'row'}}>
           <View style={styles.userAvatar}>
@@ -195,7 +196,7 @@ const EmojiDetailCom = props => {
           </View>
           </View>
           </Modal> */}
-    </View>
+    </SafeAreaView>
   );
 };
 export default EmojiDetailCom;

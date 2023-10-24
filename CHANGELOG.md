@@ -5,30 +5,15 @@
 
 - Feat: 手机屏保，一打开手机，就出现那5个emjio选项，可以选择其中一个
 
-# [v0.0.2]
-
-- ops: be as a systemd service
-- FixBug: 朋友圈需要按最新时间排序。
-- FixBug: more detailed error info for UI data service
-- FixBug: 当注册失败第一次，后面signup按钮无法再点击
-- FixBug: 学生的，ios无法注册及登录
-
-- iOS上线
-- UI: logo加红点。
-
-TODO
-
-- FixBug: iPhone 14 评论无法关闭。
-- UI: Can cancel in signup page.
-- Remove bugfender?
-
-- Feat: user can change profile picture
-- FixBug：注册邮箱重复，改报用户名重复。
-- UI: 评论参考微信设计。
-
-- android signing
-
 - Feat: 检测是否有vpn，提示关闭vpn
+
+# [v1.0.0]
+
+ios, android上线
+video chat.
+Facebook follow/unfollow.
+
+# [v0.0.3]
 
 - 安卓上线商店
 - Dev: Android/Ios release debug/log
@@ -39,8 +24,34 @@ TODO
 
 - FixUI: Chat msg is blocked by input box
 
+# [v0.0.3] next
+
+- Feat: webrtc demo
+
+- Remove bugfender?
+
+- DevOps: Browstack can't login
+
+- Feat: user can change profile picture
+- UI: 评论参考微信设计。
+
+- android signing
 
 
+# [v0.0.2]
+
+- ops: be as a systemd service
+- FixBug: 朋友圈需要按最新时间排序。
+- FixBug: more detailed error info for UI data service
+- FixBug: 当注册失败第一次，后面signup按钮无法再点击
+- FixBug: 学生的，ios无法注册及登录
+- FixBug：注册邮箱重复，改报用户名重复。
+
+- iOS上线
+
+- UI: logo加红点。
+- UI: Can click cancel in signup page.
+- FixBug: iPhone 14 评论无法关闭。
 
 # [v0.0.1]
 
