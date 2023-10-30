@@ -177,8 +177,8 @@ function posta() {
 #----------
 
 exportProj() {
-  pushd "$DIR" || return
-  tar -czf bumou.tar.gz --exclude "*.org" --exclude "node_modules" --exclude .git bumou/
+  pushd "$DIR/.." || return
+  tar -cvzf bumou.tar.gz --exclude-vcs -X "$DIR"/exportIgnore.txt -X "$DIR"/.gitignore bumou/
   popd || return
 }
 
