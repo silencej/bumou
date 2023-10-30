@@ -174,6 +174,13 @@ function posta() {
   cp "$DIR"/android/app/build/outputs/apk/release/app-release.apk "$DIR/bumou-v0.0.1-$(date '+%Y%m%d-%H%M%S').apk"
 }
 
+#----------
+
+exportProj() {
+  pushd "$DIR" || return
+  tar -czf bumou.tar.gz --exclude "*.org" --exclude "node_modules" --exclude .git bumou/
+  popd || return
+}
 
 #----------
 
