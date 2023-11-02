@@ -1,4 +1,4 @@
-import React, {useCallback, useContext, useState, useEffect, } from 'react'
+import React, {useCallback, useRedux, useContext, useState, useEffect, } from 'react'
 import {
   useSelector,
 } from 'react-redux'
@@ -22,6 +22,58 @@ import {
 import {useSetLoader}from '@src/hooks'
 
 import api from '@src/data'
+
+import {
+	ScreenCapturePickerView,
+	RTCPeerConnection,
+	RTCIceCandidate,
+	RTCSessionDescription,
+	RTCView,
+	MediaStream,
+	MediaStreamTrack,
+	mediaDevices,
+	registerGlobals,
+} from 'react-native-webrtc'
+import { useImmer } from "use-immer"
+
+function RTC() {
+  const [mc, setMc] = useImmer({
+	  audio: true,
+	  video: {
+		  frameRate: 30,
+		  facingMode: 'user'
+	  }
+  })
+  function toggleAudio() {
+    setMc(draft => draft.audio=!draft.audio)
+  }
+
+  const [ms, setMs] = useState(null)
+  useEffect(()=>{
+    (async(){
+      try {
+	      const ms = await mediaDevices.getUserMedia( mc );
+        const isVoiceOnly = false
+	      if ( isVoiceOnly ) {
+		      let videoTrack = await mediaStream.getVideoTracks()[ 0 ];
+		      videoTrack.enabled = false;
+	      };
+        setMs(ms)
+      } catch( err ) {
+	      // Handle Error
+        alert(err)
+      };
+    })()
+  }, [mc])
+
+  useEffect(()=>{
+    (async(){
+      const devices = await mediaDevices.enumerateDevices();
+      console.log("Devices: ", devices)
+    })()
+  }, [])
+  return <></>
+}
 
 function ChatBox({
   userData,
@@ -122,8 +174,31 @@ function ChatBox({
                   userUid: userData?.ID,
                 });
               }}>
-              <Text style={styles.textStyle}>Accept</Text>
+              <Text style={styles.textStyle}>Text</Text>
             </TouchableOpacity>
+
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => {
+                setModalVisible(false);
+                navigation.navigate('Messeges', {
+                  userUid: userData?.ID,
+                });
+              }}>
+              <Text style={styles.textStyle}>Audio</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => {
+                setModalVisible(false);
+                navigation.navigate('Messeges', {
+                  userUid: userData?.ID,
+                });
+              }}>
+              <Text style={styles.textStyle}>Video</Text>
+            </TouchableOpacity>
+
             <TouchableOpacity
               style={styles.button}
               onPress={() => setModalVisible(false)}>
@@ -278,4 +353,3 @@ export default function Chat (props) {
     </View>
   );
 };
-
