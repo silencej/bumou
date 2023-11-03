@@ -36,7 +36,32 @@ import {
 } from 'react-native-webrtc'
 import { useImmer } from "use-immer"
 
-function RTC() {
+const PC = {
+	iceServers: [
+		{
+			urls: 'stun:stun.l.google.com:19302'
+		},
+    {
+      urls: "turn:bumou.space:3478",
+      username: "bumou",
+      credential: "3vlSSrbJNQg",
+    },
+	]
+}
+
+const sessionConstraints = {
+	mandatory: {
+		OfferToReceiveAudio: true,
+		OfferToReceiveVideo: true,
+		VoiceActivityDetection: true
+	}
+};
+
+function RTC({
+  user,
+  status,
+  isVoiceOnly = false,
+}) {
   const [mc, setMc] = useImmer({
 	  audio: true,
 	  video: {
@@ -49,11 +74,22 @@ function RTC() {
   }
 
   const [ms, setMs] = useState(null)
+  const [pc, setPc] = useState(null)
+  const [sc, setSc] = useState(null)
+
   useEffect(()=>{
     (async(){
+
+      if (status === "off") {
+        if (!!ms) ms.getTracks().forEach(t=>t.stop())
+        setMs(null)
+        if (!!pc) pc.close()
+        setPc(null)
+        return
+      }
+
       try {
 	      const ms = await mediaDevices.getUserMedia( mc );
-        const isVoiceOnly = false
 	      if ( isVoiceOnly ) {
 		      let videoTrack = await mediaStream.getVideoTracks()[ 0 ];
 		      videoTrack.enabled = false;
@@ -63,8 +99,19 @@ function RTC() {
 	      // Handle Error
         alert(err)
       };
+
+      const pc = new RTCPeerConnection(PC)
+      setPc(pc)
+
+      ms.getTracks().forEach(
+	      track => pc.addTrack( track, ms );
+      );
+
+
+      const offerDescription = await pc.createOffer( sessionConstraints );
+	    await pc.setLocalDescription( offerDescription );
     })()
-  }, [mc])
+  }, [mc, status])
 
   useEffect(()=>{
     (async(){
@@ -80,6 +127,7 @@ function ChatBox({
   modalVisible,
   setModalVisible,
   navigation,
+  setRtcUser,
 }) {
 
   const coord = userData?.Coordinates ? JSON.parse(userData?.Coordinates) : {}
@@ -192,9 +240,7 @@ function ChatBox({
               style={styles.button}
               onPress={() => {
                 setModalVisible(false);
-                navigation.navigate('Messeges', {
-                  userUid: userData?.ID,
-                });
+                setRtcUser(userData?.ID)
               }}>
               <Text style={styles.textStyle}>Video</Text>
             </TouchableOpacity>
@@ -231,6 +277,8 @@ export default function Chat (props) {
       setUsers(getUsersRes.data.filter(u=> u.Type === profile.Type && u.ID!=profile.ID))
     }
   }, [getUsersRes.data])
+
+  const [rtcUser, setRtcUser] = useState(null)
 
   const getUserType = () => {
     // setLoader(true);
@@ -342,12 +390,18 @@ export default function Chat (props) {
         />
       </View>
 
+      <RTC
+        user={rtcUser}
+        status={rtcUser!=null}
+      />
+
       <ChatBox
         {...{
           userData: users[talkTo],
           modalVisible,
           setModalVisible,
           navigation: props.navigation,
+          setRtcUser,
         }}
       />
     </View>
