@@ -114,6 +114,10 @@ starti() {
   xcodebuild -workspace "$DIR"/ios/BUMOU.xcworkspace -configuration "$mode" -scheme BUMOU -destination id="$iphone14"
 }
 
+xcode() {
+  xcodebuild -workspace "$DIR"/ios/BUMOU.xcworkspace -configuration "$mode" -scheme BUMOU -target -showBuildSettings
+}
+
 
 #---------- Android
 
